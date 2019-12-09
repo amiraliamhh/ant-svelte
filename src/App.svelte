@@ -3,7 +3,11 @@
 </script>
 
 <main>
-	<Button>Click!</Button>
+	<Button
+		disabled={true}
+		type="default"
+		size="large"
+	>Click!</Button>
 </main>
 
 <style>
