@@ -1,12 +1,16 @@
 <script>
 	import Button from '../components/button/button.svelte'
+
+	function handleClick(evt) {
+		console.log('Clicked!')
+	}
 </script>
 
 <main>
 	<Button
-		disabled={true}
 		type="default"
 		size="large"
+		on:click={ handleClick }
 	>Click!</Button>
 </main>
 
