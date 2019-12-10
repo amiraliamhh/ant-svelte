@@ -1,12 +1,21 @@
 <script>
+  import { createEventDispatcher } from 'svelte'
+  const dispatch = createEventDispatcher()
+
   export let type = 'default' // primary, secondary
   export let disabled = false
   export let size = 'default' // small, large
+  export let shape = 'round' // circle
+
+  function emitClick(e) {
+    dispatch('click', e)
+  }
 </script>
 
 <button
-  class={ `${type} size-${size}` }
+  class={ `${type} size-${size} shape-${shape}` }
   disabled={ disabled }
+  on:click={ emitClick }
 >
   <slot />
 </button>
@@ -40,5 +49,11 @@ button {
   height: 40px;
   padding: 0px 15px;
   font-size: 16px;
+}
+
+/* shapes */
+.shape-circle {
+  min-width: 40px;
+  border-radius: 50%;
 }
 </style>
